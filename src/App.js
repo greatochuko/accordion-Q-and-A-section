@@ -52,12 +52,13 @@ function Accordion({ number, title, content, setIsOpenID, isOpenID }) {
     }
   }
   return (
-    <div className={`item ${isOpenID === number && "open"}`}>
+    <div
+      onClick={() => toggleOpen(number)}
+      className={`item ${isOpenID === number && "open"}`}
+    >
       <h1 className="number">{number}</h1>
       <h1 className="title">{title}</h1>
-      <button onClick={() => toggleOpen(number)} className="icon">
-        {isOpenID === number ? "-" : "+"}
-      </button>
+      <div className="icon">{isOpenID === number ? "-" : "+"}</div>
       {isOpenID === number && (
         <div className="content-box">
           <p>{content}</p>
